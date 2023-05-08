@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+    phpmyadmin:
+        container_name: phpmyadmin
+        image: phpmyadmin/phpmyadmin:latest
+        environment:
+            PMA_HOST: mysql # Your DB service name
+            PMA_PORT: 3306
+            APACHE_PORT: 8080
+            UPLOAD_LIMIT: 1G
+        restart: unless-stopped
+        network_mode: bridge
+        
+        # If you are running nginx on the host, you will need the port mapping
+        # Otherwise remove, to not expose more ports than needed.
+        # ports:
+        #     - 8080:8080
