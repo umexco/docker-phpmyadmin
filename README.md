@@ -24,3 +24,25 @@ services:
         # ports:
         #     - 8080:8080
 ```
+
+
+### Nginx
+```perl
+server {
+    server_name pma.allaoui.tech;
+
+    location ^~ / {
+        proxy_pass http://127.0.0.1:8080;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection “upgrade”;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Proto https;
+        client_max_body_size 1G;
+    }
+}
+```
+
+```sh
+cd /etc/nginx/sites-enabled && sudo ln -s ../sites-available/domain.com.conf domain.com.conf
+```
