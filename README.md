@@ -44,7 +44,7 @@ server {
 ```
 
 ```sh
-cd /etc/nginx/sites-enabled && sudo ln -s ../sites-available/pma.domain.com pma.domain.com
+cd /etc/nginx/sites-enabled && sudo ln -s ../sites-available/pma.domain.com.conf pma.domain.com.conf
 sudo service nginx reload
 sudo certbot --nginx -d pma.domain.com
 ```
