@@ -26,7 +26,7 @@ services:
 ```
 
 
-### Nginx
+### Nginx (on host, without nginx-proxy)
 ```perl
 server {
     server_name pma.domain.com;
