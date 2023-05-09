@@ -29,7 +29,7 @@ services:
 ### Nginx
 ```perl
 server {
-    server_name pma.allaoui.tech;
+    server_name pma.domain.com;
 
     location ^~ / {
         proxy_pass http://127.0.0.1:8080;
@@ -44,5 +44,7 @@ server {
 ```
 
 ```sh
-cd /etc/nginx/sites-enabled && sudo ln -s ../sites-available/domain.com.conf domain.com.conf
+cd /etc/nginx/sites-enabled && sudo ln -s ../sites-available/pma.domain.com pma.domain.com
+sudo service nginx reload
+sudo certbot --nginx -d pma.domain.com
 ```
